@@ -1,6 +1,6 @@
 hosts-deploy
 =========
-Deploy inventory hosts to ``/etc/hosts``.
+Deploy **```inventory hosts```** to **``/etc/hosts``**.
 
 Requirements
 ------------
@@ -22,12 +22,41 @@ Dependencies
 
 None
 
-Example Playbook
+Example
 ----------------
 
-    - hosts: servers
++ Assuming your **``inventory``** like:
+
+	```bash
+	proxy
+	
+	[all:children]
+	webserver
+	dbserver
+	
+	[webserver]
+	web01 ansible_ssh_host=192.168.100.101
+	web02 ansible_ssh_host=192.168.100.102
+	
+	[dbserver]
+	db01 ansible_ssh_host=10.1.1.20
+	db02 ansible_ssh_host=10.1.1.21
+	
+	```
++ The **``Playbook``** like:
+
+	```python
+	- hosts: proxy
       roles:
-         - { role: ihaolin.hosts-deploy, GROUP_NAME: 'webservers' }
+         - { role: ihaolin.hosts-deploy, GROUP_NAME: 'webserver' }
+	```
+
++  The result to the **``proxy``**'s **``/etc/hosts``** appended: 
+
+	```python
+	192.168.100.101 web01 
+	192.168.100.102 web02
+	```   
 
 License
 -------
@@ -37,3 +66,4 @@ MIT
 Author Information
 ------------------
 
+[haolin.h0@gmail.com](mailto:haolin.h0@gmail.com)
