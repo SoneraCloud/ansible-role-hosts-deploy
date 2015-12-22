@@ -27,7 +27,7 @@ Example
 
 + Assuming your **``inventory``** like:
 
-	```bash
+	```
 	proxy
 	
 	[all:children]
@@ -45,7 +45,7 @@ Example
 	```
 + The **``Playbook``** like:
 
-	```python
+	```
 	- hosts: proxy
       roles:
          - { role: ihaolin.hosts-deploy, GROUP_NAME: 'webserver' }
@@ -53,7 +53,7 @@ Example
 
 +  The result to the **``proxy``**'s **``/etc/hosts``** appended: 
 
-	```python
+	```
 	192.168.100.101 web01 
 	192.168.100.102 web02
 	```   
