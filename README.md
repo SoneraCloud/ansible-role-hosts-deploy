@@ -31,12 +31,12 @@ Example
 		dbserver
 			
 		[webserver]
-		web01 ansible_ssh_host=192.168.100.101
-		web02 ansible_ssh_host=192.168.100.102
+		web01 ansible_host=192.168.100.101
+		web02 ansible_host=192.168.100.102
 			
 		[dbserver]
-		db01 ansible_ssh_host=10.1.1.20
-		db02 ansible_ssh_host=10.1.1.21
+		db01 ansible_host=10.1.1.20
+		db02 ansible_host=10.1.1.21
 
 + The **``Playbook``** like:
 
